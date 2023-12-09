@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hide-scrollbar {
+  overflow-y: hidden;
+}
+
+/* Add this to your global styles or the component's stylesheet */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ee2239;
+  /* Set the color of the scrollbar thumb */
+  border-radius: 5px;
+  /* Set the border radius of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  /* Set the color of the scrollbar track */
+}

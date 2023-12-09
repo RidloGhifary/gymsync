@@ -14,7 +14,12 @@ module.exports = {
       },
       colors: {
         'red': '#EE2239',
-        'black': '#eaeaea'
+        'white': '#ffffff',
+        'black': '#222222',
+        'secBlack': "#444444"
+      },
+      screens: {
+        'laptop': '1124px'
       }
     },
   },
