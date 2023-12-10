@@ -14,10 +14,10 @@ import { CaretRight } from '@phosphor-icons/react/dist/ssr'
 
 export default function WhoWeAre() {
   return (
-    <div className='relative w-full min-h-[100vh] overflow-x-hidden'>
+    <div className='relative w-full min-h-[100vh]'>
       <Image src={background} alt="background" className='w-full h-full object-cover object-center absolute -z-10 opacity-5 top-0 left-0' />
 
-      <div className='grid md:grid-cols-3 gap-6 justify-center p-6 md:p-10 -mt-[90px]'>
+      <div className='grid md:grid-cols-3 gap-6 justify-center p-6 md:p-10 mt-[-90px]'>
         <div className='h-[350px] relative z-10 overflow-hidden rounded-tl-3xl rounded-br-3xl text-center shadow-lg group cursor-pointer'>
           <Image src={photo1} alt="photo1" className='w-full h-full object-cover object-center' />
           <div className='absolute top-0 left-0 bottom-0 right-0 flex flex-col justify-center items-center p-6 transition bg-white group-hover:bg-black/50'>
