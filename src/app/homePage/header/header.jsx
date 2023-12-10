@@ -6,8 +6,8 @@ import { CaretRight, InstagramLogo, LinkedinLogo, TwitterLogo } from "@phosphor-
 
 export default function Header() {
   return (
-    <header className="relative w-full min-h-[100vh]">
-      <div className="w-full h-[100vh]">
+    <header className="relative w-full min-h-[110vh]">
+      <div className="w-full h-[110vh]">
         <Image src={headerBg} alt="headerBg" width={1500} height={1500}
           className="w-full h-full object-cover object-center" />
       </div>

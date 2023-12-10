@@ -1,7 +1,11 @@
-import Header from "../header/header";
+import Header from "./header/header";
+import WhoWeAre from "./whoWeAre/whoWeAre";
 
 export default function HomePage() {
   return (
-    <Header />
+    <>
+      <Header />
+      <WhoWeAre />
+    </>
   )
 }
