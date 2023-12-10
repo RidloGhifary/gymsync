@@ -9,13 +9,14 @@ import gallery3 from '/public/assets/gallery/photo3.jpg'
 import gallery4 from '/public/assets/gallery/photo4.jpg'
 import gallery5 from '/public/assets/gallery/photo5.jpg'
 import gallery6 from '/public/assets/gallery/photo6.jpg'
+import SideNavbar from "./sideNavbar";
 import { AlignLeft, EnvelopeSimpleOpen, FacebookLogo, InstagramLogo, List, MapPin, Phone, Plus, TwitterLogo, User, X } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useRef, useState } from "react";
-import SideNavbar from "./sideNavbar";
 
 export default function Navbar() {
   const [navigasibar, setNavigasibar] = useState(false)
   const [showSideBar, setShowSideBar] = useState(false)
+  const [positionNavbar, setPositionNavbar] = useState(false)
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -38,8 +39,25 @@ export default function Navbar() {
     }
   }, [showSideBar, navigasibar])
 
+  useEffect(() => {
+    const handleScrollNavbar = () => {
+      const scrollHeight = document.documentElement.scrollTop
+      if (scrollHeight > 10) {
+        setPositionNavbar(true)
+      } else if (scrollHeight <= 10) {
+        setPositionNavbar(false)
+      }
+    }
+
+    document.addEventListener('scroll', handleScrollNavbar)
+    return () => {
+      document.removeEventListener('scroll', handleScrollNavbar)
+    }
+  }, [positionNavbar])
+
   return (
-    <nav className="relative w-full mx-auto p-6 bg-black">
+    <nav className={positionNavbar ? "fixed z-50 w-full mx-auto p-6 bg-black"
+      : "fixed z-50 w-full mx-auto p-6 bg-transparent"}>
       <div className="flex justify-between items-center">
         <Link href="/" className="flex justify-center items-center gap-2">
           <Image src={NavLogo} alt="NavLogo" className="w-[90px]" />
