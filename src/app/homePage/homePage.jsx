@@ -2,6 +2,7 @@ import CalculateBMI from "./calculateBMI/calculateBMI";
 import FeatureClass from "./featureClass/featureClass";
 import GymGallery from "./gymGallery/gymGallery";
 import Header from "./header/header";
+import Pricing from "./pricing/pricing";
 import Testimonials from "./testimonials/testimonials";
 import Trainers from "./trainers/trainers";
 import WhoWeAre from "./whoWeAre/whoWeAre";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Testimonials />
       <GymGallery />
       <CalculateBMI />
+      <Pricing />
     </>
   )
 }
