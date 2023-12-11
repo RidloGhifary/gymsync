@@ -1,4 +1,5 @@
 import FeatureClass from "./featureClass/featureClass";
+import GymGallery from "./gymGallery/gymGallery";
 import Header from "./header/header";
 import Testimonials from "./testimonials/testimonials";
 import Trainers from "./trainers/trainers";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <Trainers />
       <Testimonials />
+      <GymGallery />
     </>
   )
 }

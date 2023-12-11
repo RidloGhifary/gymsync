@@ -23,3 +23,23 @@
   background-color: #ffffff;
   /* Set the color of the scrollbar track */
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #ffffff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}

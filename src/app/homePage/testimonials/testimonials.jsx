@@ -1,12 +1,21 @@
+'use client'
+
 import paintScratch from '/public/assets/paint-scratch.svg'
 import photo from '/public/assets/testimonial/photo.jpg'
+import photo2 from '/public/assets/testimonial/photo2.jpg'
+import photo3 from '/public/assets/testimonial/photo3.jpg'
 import person1 from '/public/assets/testimonial/person1.jpg'
 import person2 from '/public/assets/testimonial/person2.jpg'
 import person3 from '/public/assets/testimonial/person3.jpg'
 import person4 from '/public/assets/testimonial/person4.jpg'
 import person5 from '/public/assets/testimonial/person5.jpg'
 import Image from 'next/image'
-import { Bookmark, ShootingStar, Star } from '@phosphor-icons/react/dist/ssr'
+import { ShootingStar, Star } from '@phosphor-icons/react/dist/ssr'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
+import TestimonialsTemplate from '@/app/components/tertimonials'
 
 export default function Testimonials() {
   return (
@@ -28,23 +37,43 @@ export default function Testimonials() {
             <ShootingStar size={35} color="#fdd017" weight="fill" className='ml-6' />
           </div>
         </div>
-        <div className='w-full p-4 shadow-xl bg-black text-white rounded-md'>
-          <div className='flex items-center gap-2'>
-            <Image src={photo} alt="photo-person" className='w-[50px] h-[50px] rounded-full object-cover object-center' />
-            <div className="flex flex-col text-white">
-              <p className='font-semibold text-lg'>Leo Messi</p>
-              <p className="text-sm">FC Barcelona</p>
-            </div>
-          </div>
-          <div className='flex items-center my-5'>
-            <Star size={25} color="#fdd017" weight="fill" />
-            <Star size={25} color="#fdd017" weight="fill" />
-            <Star size={25} color="#fdd017" weight="fill" />
-            <Star size={25} color="#fdd017" weight="fill" />
-            <Star size={25} color="#fdd017" weight="fill" />
-          </div>
-          <p>&quot;Joining this gym has been a game-changer for me. The personalized workouts, motivating atmosphere, and friendly staff have made fitness an enjoyable journey. I&apos;ve seen remarkable progress and appreciate the supportive community. Highly recommend it!&quot;</p>
-        </div>
+        <Swiper
+          slidesPerView={1}
+          centeredSlides={true}
+          spaceBetween={30}
+          grabCursor={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Autoplay, Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <TestimonialsTemplate
+              photo={photo}
+              name="John"
+              job="Software Engineer"
+              comment="The variety of classes and top-notch equipment make every workout exciting. The trainers' expertise and encouragement push me to achieve my fitness goals. It's more than a gym; it's a community that motivates and uplifts." />
+          </SwiperSlide>
+          <SwiperSlide>
+            <TestimonialsTemplate
+              photo={photo2}
+              name="Catherine"
+              job="Marketing Executive"
+              comment="Joining this gym has been a game-changer for me. The personalized workouts, motivating atmosphere, and friendly staff have made fitness an enjoyable journey. I've seen remarkable progress and appreciate the supportive community. Highly recommend it!" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <TestimonialsTemplate
+              photo={photo3}
+              name="Samantha "
+              job="Graphic Designer"
+              comment="I love the positive energy here! The diverse classes cater to different fitness levels, and the trainers genuinely care about our progress. It's not just a workout; it's an empowering experience. Grateful to be part of this fitness family!" />
+          </SwiperSlide>
+        </Swiper>
       </div>
     </section>
   )
