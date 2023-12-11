@@ -1,4 +1,5 @@
 import CalculateBMI from "./calculateBMI/calculateBMI";
+import Contact from "./contact/contact";
 import FeatureClass from "./featureClass/featureClass";
 import GymGallery from "./gymGallery/gymGallery";
 import Header from "./header/header";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <CalculateBMI />
       <Pricing />
       <LatestBlog />
+      <Contact />
     </>
   )
 }
