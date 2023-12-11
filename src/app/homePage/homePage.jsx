@@ -1,6 +1,7 @@
 import FeatureClass from "./featureClass/featureClass";
 import Header from "./header/header";
 import WhoWeAre from "./whoWeAre/whoWeAre";
+import WhyChooseUs from "./whyChooseUs/whyChooseUs";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Header />
       <WhoWeAre />
       <FeatureClass />
+      <WhyChooseUs />
     </>
   )
 }
