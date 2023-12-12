@@ -12,6 +12,7 @@ import gallery6 from '/public/assets/gallery/photo6.jpg'
 import SideNavbar from "./sideNavbar";
 import { AlignLeft, EnvelopeSimpleOpen, FacebookLogo, InstagramLogo, List, MapPin, Phone, Plus, TwitterLogo, User, X } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useRef, useState } from "react";
+import dayjs from "dayjs";
 
 export default function Navbar() {
   const [navigasibar, setNavigasibar] = useState(false)
@@ -55,6 +56,8 @@ export default function Navbar() {
     }
   }, [positionNavbar])
 
+  const today = dayjs().format('dddd')
+
   return (
     <nav className={positionNavbar ? "fixed z-50 w-full mx-auto p-6 bg-black"
       : "fixed z-50 w-full mx-auto p-6 bg-transparent"}>
@@ -74,7 +77,7 @@ export default function Navbar() {
             className="font-semibold text-white transition hover:text-red">About</Link>
           <Link href="/classes"
             className="font-semibold text-white transition hover:text-red">Classes</Link>
-          <Link href="/schedule"
+          <Link href={`/schedule/days?day=${today.toLowerCase()}`}
             className="font-semibold text-white transition hover:text-red">Schedule</Link>
           <Link href="/gallery"
             className="font-semibold text-white transition hover:text-red">Gallery</Link>
