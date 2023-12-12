@@ -12,7 +12,7 @@ export default function Header() {
           className="w-full h-full object-cover object-center" />
       </div>
 
-      <div className="w-full absolute left-0 top-0 bottom-0 right-0 p-10 pt-16">
+      <div className="w-full absolute left-0 top-0 bottom-0 right-0 p-10 md:pt-16">
         <div className="w-full sm:w-[100%] md:w-[80%] laptop:w-[60%] h-full flex justify-center items-center gap-20">
           <div className="hidden sm:flex flex-col justify-center items-center gap-5">
             <div className="transform -rotate-90 origin-center text-center mb-5">
@@ -35,7 +35,7 @@ export default function Header() {
               </div>
             </div>
             <article className="text-white text-center mt-16">
-              <h1 className="my-4 font-bold text-6xl leading-[80px]">Unleash Your Potential at <i className="font-black">GymSync</i></h1>
+              <h1 className="my-4 font-bold text-5xl lg:text-6xl leading-[80px]">Unleash Your Potential at <i className="font-black">GymSync</i></h1>
               <Link href="/classes" className="group relative mt-8 px-8 py-4 bg-white text-lg font-semibold flex text-red items-center justify-center gap-2 mx-auto"
                 style={{ maxWidth: "220px" }}>
                 Our classes

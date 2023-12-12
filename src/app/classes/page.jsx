@@ -1,3 +1,5 @@
+"use client"
+
 import PageBackground from "../components/pageBackground";
 import Image from 'next/image'
 import cycling from '/public/assets/class/cycling.jpg'
@@ -11,8 +13,10 @@ import classes8 from '/public/assets/class/class8.jpg'
 import classes9 from '/public/assets/class/class9.jpg'
 import classes10 from '/public/assets/class/class10.jpg'
 import ClassesTemplate from "../components/classesTemplate";
+import { useState } from "react";
 
 export default function ClassesPage() {
+  const [showMore, setShowMore] = useState(false)
   return (
     <section>
       <PageBackground name="Classes" />
@@ -42,32 +46,43 @@ export default function ClassesPage() {
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="Spin Cycle" name="Jason Taylor" schedule="5:00 PM - 6:00 PM" />
         </div>
+
         <div className="relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl">
           <Image src={workout} alt="cycling" width={1000} height={1000}
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="CrossFit Challenge" name="Emily White" schedule="6:30 PM - 8:00 PM" />
         </div>
-        <div className="relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl">
+        <div className={showMore ? "block relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl" : "hidden"}>
           <Image src={classes7} alt="cycling" width={1000} height={1000}
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="Pilates Core" name="Daniel Harris" schedule="7:30 AM - 8:30 AM" />
         </div>
-        <div className="relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl">
+        <div className={showMore ? "block relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl" : "hidden"}>
           <Image src={classes8} alt="cycling" width={1000} height={1000}
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="Zumba Party" name="Maria Rodriguez" schedule="11:00 AM - 12:00 PM" />
         </div>
-        <div className="relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl">
+        <div className={showMore ? "block relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl" : "hidden"}>
           <Image src={classes9} alt="cycling" width={1000} height={1000}
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="Bodyweight Bootcamp" name="Ryan Turner" schedule="6:00 AM - 7:00 AM" />
         </div>
-        <div className="relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl">
+        <div className={showMore ? "block relative group w-full row-span-3 overflow-hidden shadow-lg rounded-2xl" : "hidden"}>
           <Image src={classes10} alt="cycling" width={1000} height={1000}
             className="w-full h-full min-h-[450px] object-cover object-center rounded-2xl" />
           <ClassesTemplate nameClass="Mindful Meditation" name="Jessica Lee" schedule="8:00 AM - 9:00 AM" />
         </div>
+      </div>
 
+      <div className="w-full flex justify-center">
+        <button
+          className="bg-secBlack text-white py-3 px-6 font-semibold text-lg shadow-sm hover:shadow-lg"
+          onClick={() => {
+            setShowMore(!showMore);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}>
+          {showMore ? "Show Less" : "Show More"}
+        </button>
       </div>
     </section>
   )
