@@ -4,7 +4,7 @@
 
 <p><b>GymSync</b> is a fitness-oriented term that could be associated with activities related to synchronizing or coordinating workouts, exercise routines, or fitness tracking. It might involve the integration of technology, apps, or devices to streamline and optimize fitness experiences. Whether it's collaborative workout sessions, shared fitness goals, or synchronized data tracking, GymSync could represent a holistic approach to achieving health and wellness goals. The concept suggests a harmonious blend of physical activity and technological support for a well-coordinated and efficient fitness journey.</p>
 
-👉 Live Demo: <a href='https://gymate-stefvndev.vercel.app/'>Gymate Demo</a>
+👉 Live Demo: <a href='https://gymsync.vercel.app/'>GymSync Demo</a>
 
 <h3>Build with:</h3>
 
