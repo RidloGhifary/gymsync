@@ -42,7 +42,7 @@ export default function About() {
         <div className="text-center p-6">
           <AnchorSimple size={90} color="#ee2239" weight="fill" className="mx-auto" />
           <h1 className='text-black font-bold text-5xl md:text-6xl'>Our Fitness Journey</h1>
-          <p className='text-secBlack text-sm md:text-base mt-5'>Since 2018, GymSync has been on a dedicated mission to inspire healthier lives. From our modest start, we've grown into a thriving fitness community, fostering transformations and celebrating milestones. Our commitment to excellence and innovation has made GymSync a hub for wellness.</p>
+          <p className='text-secBlack text-sm md:text-base mt-5'>Since 2018, GymSync has been on a dedicated mission to inspire healthier lives. From our modest start, we&apos;ve grown into a thriving fitness community, fostering transformations and celebrating milestones. Our commitment to excellence and innovation has made GymSync a hub for wellness.</p>
         </div>
         <div className='w-full hidden lg:block'>
           <Image src={aboutPhoto1} alt="aboutphoto1" className="w-full object-cover object-center" />
@@ -58,7 +58,7 @@ export default function About() {
         <div className="text-center p-6">
           <ShareNetwork size={90} color="#ee2239" weight="fill" className="mx-auto" />
           <h1 className='text-black font-bold text-5xl md:text-6xl'>Stronger Community</h1>
-          <p className='text-secBlack text-sm md:text-base mt-5'>At GymSync, we believe in the power of community. Beyond workouts, we actively engage with our members and the local community. From fitness challenges and events to partnerships with local businesses, we're dedicated to creating a vibrant, supportive network.</p>
+          <p className='text-secBlack text-sm md:text-base mt-5'>At GymSync, we believe in the power of community. Beyond workouts, we actively engage with our members and the local community. From fitness challenges and events to partnerships with local businesses, we&apos;re dedicated to creating a vibrant, supportive network.</p>
         </div>
         <div className='w-full hidden lg:block'>
           <Image src={aboutPhoto3} alt="aboutphoto1" className="w-full object-cover object-center" />
