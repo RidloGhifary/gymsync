@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-<div align='center'><img src='/public/assets/myLogo.png'/></div>
 
-=======
- ![myLogo](https://github.com/RidloGhifary/gymsync/assets/117726043/81a6c9bb-266a-4b32-ab6e-5452370f3fd5)
- 
->>>>>>> ad3b9b3d68d76b9b41810ae1a3c0e734320737dd
+<div align='center'><img src='/public/assets/myLogo.png'/></div>
 <h2>About the project</h2>
 
 <p><b>GymSync</b> is a fitness-oriented term that could be associated with activities related to synchronizing or coordinating workouts, exercise routines, or fitness tracking. It might involve the integration of technology, apps, or devices to streamline and optimize fitness experiences. Whether it's collaborative workout sessions, shared fitness goals, or synchronized data tracking, GymSync could represent a holistic approach to achieving health and wellness goals. The concept suggests a harmonious blend of physical activity and technological support for a well-coordinated and efficient fitness journey.</p>
