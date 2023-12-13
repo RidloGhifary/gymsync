@@ -1,5 +1,7 @@
 "use client"
 
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from '/src/app/firebase'
 import Image from "next/image";
 import Link from "next/link";
 import NavLogo from '/public/assets/myLogo.png'
@@ -10,14 +12,18 @@ import gallery4 from '/public/assets/gallery/photo4.jpg'
 import gallery5 from '/public/assets/gallery/photo5.jpg'
 import gallery6 from '/public/assets/gallery/photo6.jpg'
 import SideNavbar from "./sideNavbar";
-import { AlignLeft, EnvelopeSimpleOpen, FacebookLogo, InstagramLogo, List, MapPin, Phone, Plus, TwitterLogo, User, X } from "@phosphor-icons/react/dist/ssr";
+import { AlignLeft, EnvelopeSimpleOpen, FacebookLogo, InstagramLogo, List, MapPin, Phone, Plus, SignOut, TwitterLogo, User, X } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useRef, useState } from "react";
 import dayjs from "dayjs";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [navigasibar, setNavigasibar] = useState(false)
   const [showSideBar, setShowSideBar] = useState(false)
   const [positionNavbar, setPositionNavbar] = useState(false)
+  const [handleUser, setHandleUser] = useState(false)
+  const [handleUserName, setHandleUserName] = useState("")
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -55,6 +61,62 @@ export default function Navbar() {
       document.removeEventListener('scroll', handleScrollNavbar)
     }
   }, [positionNavbar])
+
+  const handleMouseOver = () => {
+    setHandleUser(true)
+  };
+
+  const handleMouseOut = () => {
+    setHandleUser(false)
+  };
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+
+  //const auth = getAuth();
+  const user = auth.currentUser;
+  onAuthStateChanged(auth, (user) => {
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+      const username = email.match(/^(.+)@/)[1];
+      setHandleUserName(username)
+
+      // The user's ID, unique to the Firebase project. Do NOT use
+      // this value to authenticate with your backend server, if
+      // you have one. Use User.getToken() instead.
+      const uid = user.uid;
+    }
+  });
+
+  const router = useRouter()
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+      });
+      router.push('/')
+      window.location.reload();
+    }).catch((error) => {
+      Toast.fire({
+        icon: "error",
+        title: "Signed in successfully"
+      });
+    });
+  }
 
   const today = dayjs().format('dddd')
 
@@ -95,8 +157,22 @@ export default function Navbar() {
             onClick={() => setNavigasibar(!navigasibar)}>
             <List size={28} color="#ffffff" weight="bold" />
           </button>
-          <Link href="/signup" title="Sign-up">
+          <Link href="/signup" title="Sign-up" className="relative"
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut} >
             <User size={28} color="#ffffff" weight="bold" />
+
+            <span className={handleUser ? "min-w-[200px] block absolute top-[30px] right-[-10px] p-4 rounded-lg bg-white shadow-xl" : "hidden"}
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}>
+              <span className="flex justify-between items-center mb-3">
+                <User size={28} color="#222222" weight="fill" />
+                <button title="Log Out" onClick={handleSignOut}
+                ><SignOut size={28} color="#111111" weight="bold" /></button>
+              </span>
+              {handleUserName || "User name"}
+            </span>
+
           </Link>
           <button title="Side-Bar" onClick={() => setShowSideBar(!showSideBar)}>
             <AlignLeft size={28} color="#ffffff" weight="bold" />
